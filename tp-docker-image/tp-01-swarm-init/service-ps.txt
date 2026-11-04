@@ -1,0 +1,7 @@
+ID             NAME        IMAGE          NODE       DESIRED STATE   CURRENT STATE                ERROR     PORTS
+1tv27bx2wnv7   web.1       nginx:latest   worker2    Running         Running about a minute ago             
+811uq996d506   web.2       nginx:latest   manager1   Running         Running about a minute ago             
+9qgishu5jgvs   web.3       nginx:latest   worker2    Running         Running 14 seconds ago                 
+ltuhthikbota    \_ web.3   nginx:latest   worker1    Shutdown        Running about a minute ago             
+xxrswmyvxgqi   web.4       nginx:latest   manager1   Running         Running 14 seconds ago                 
+h5n9q9mj5la2    \_ web.4   nginx:latest   worker1    Shutdown        Running about a minute ago             

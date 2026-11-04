@@ -1,0 +1,28 @@
+### variante : seules les images sont corrigees
+Creating service orig_front
+14:51:57
+orig_api 1/1 
+orig_front 1/1 *:8080->80/tcp
+orig_postgres 1/1 *:5432->5432/tcp
+orig_redis 1/1 
+orig_worker 1/1 
+orig_api.1 | worker1 | Running | Running 42 seconds ago | 
+orig_front.1 | worker2 | Running | Running 39 seconds ago | 
+orig_postgres.1 | worker2 | Running | Running 39 seconds ago | 
+orig_redis.1 | worker1 | Running | Running 41 seconds ago | 
+orig_worker.1 | worker2 | Running | Running 36 seconds ago | 
+orig_worker.1 | worker2 | Shutdown | Failed 41 seconds ago | "task: non-zero exit (1)"
+worker crashed: getaddrinfo ENOTFOUND redis
+worker started
+init attempt 1/10 failed: getaddrinfo ENOTFOUND postgres
+init attempt 2/10 failed: getaddrinfo ENOTFOUND postgres
+api v1 listening on 3000
+### port 5432 depuis l'exterieur du reseau overlay
+manager1:5432 -> OUVERT
+worker1:5432 -> OUVERT
+worker2:5432 -> OUVERT
+### mot de passe dans service inspect
+DB_PASSWORD=Sup*** (valeur lisible en clair, masquee ici)
+### votes
+202 202 202 
+{"version":"v1","results":[{"option":"kubernetes","count":1},{"option":"swarm","count":2}]} HTTP 200

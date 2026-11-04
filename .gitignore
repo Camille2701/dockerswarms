@@ -1,0 +1,19 @@
+# Système et éditeurs
+.DS_Store
+.idea/
+.vscode/
+
+# Données générées par les conteneurs (bases, volumes)
+mysql-data/
+*-data/
+
+# Dépendances et logs
+node_modules/
+*.log
+
+# Secrets locaux
+.env
+.env.*
+!.env.example
+*.pem
+*.key

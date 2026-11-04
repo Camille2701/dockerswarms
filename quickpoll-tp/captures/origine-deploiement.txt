@@ -1,0 +1,16 @@
+### deploiement du stack.yml d'origine, tel quel
+Ignoring unsupported options: build
+
+Creating network orig_quickpoll
+Creating service orig_front
+Creating service orig_api
+Creating service orig_worker
+Creating service orig_redis
+Creating service orig_postgres
+### 25s apres
+orig_api 0/1 quickpoll-api:v1
+orig_front 0/1 quickpoll-front:v1
+orig_postgres 1/1 postgres:16-alpine
+orig_redis 1/1 redis:7-alpine
+orig_worker 0/1 quickpoll-worker:v1
+orig_api.1 | worker2 | Shutdown | Rejected 28 seconds ago | "pull access denied for quickpoll-api, repository does not exist or may require 'docker login'"

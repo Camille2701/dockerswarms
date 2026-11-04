@@ -1,0 +1,32 @@
+### avant drain
+14:30:53
+ID                            HOSTNAME   STATUS    AVAILABILITY   MANAGER STATUS   ENGINE VERSION
+jbn4g6hwkxrmxsebb56kydkja *   manager1   Ready     Active         Leader           29.8.2
+hd2mcrc4pk8dnryb5x39sipwk     worker1    Ready     Active                          29.8.2
+umtgdxsw40e8bezxe3yigzxrp     worker2    Ready     Active                          29.8.2
+{"version":"v2","results":[{"option":"kubernetes","count":4},{"option":"nomad","count":3},{"option":"swarm","count":7}]}
+worker1
+### 80s apres drain worker1
+14:32:14
+ID                            HOSTNAME   STATUS    AVAILABILITY   MANAGER STATUS   ENGINE VERSION
+jbn4g6hwkxrmxsebb56kydkja *   manager1   Ready     Active         Leader           29.8.2
+hd2mcrc4pk8dnryb5x39sipwk     worker1    Ready     Drain                           29.8.2
+umtgdxsw40e8bezxe3yigzxrp     worker2    Ready     Active                          29.8.2
+registry manager1 | Running | Running about a minute ago | 
+registry worker1 | Shutdown | Shutdown about a minute ago | 
+quickpoll_api 3/3
+quickpoll_front 1/1
+quickpoll_postgres 1/1
+quickpoll_redis 1/1
+quickpoll_worker 1/1
+quickpoll_api.1 | worker2 | Running 3 minutes ago | 
+quickpoll_api.2 | manager1 | Running 3 minutes ago | 
+quickpoll_api.3 | worker2 | Running about a minute ago | 
+quickpoll_front.1 | manager1 | Running about a minute ago | 
+quickpoll_postgres.1 | worker2 | Running 4 minutes ago | 
+quickpoll_redis.1 | manager1 | Running 4 minutes ago | 
+quickpoll_worker.1 | worker2 | Running 4 minutes ago | 
+
+quickpoll_worker.1 | manager1 | Shutdown | Failed 5 minutes ago | "task: non-zero exit (1)"
+{"version":"v2","results":[{"option":"kubernetes","count":4},{"option":"nomad","count":3},{"option":"swarm","count":7}]} HTTP 200
+14:32:14  {"version":"v2","host":"7ee5e44add47"} 200  (ok=375 ko=10)

@@ -1,0 +1,37 @@
+### retest : front a 2 replicas, drain worker1
+15:02:33
+quickpoll_api.1 | worker1
+quickpoll_api.2 | worker1
+quickpoll_api.3 | manager1
+quickpoll_front.1 | worker1
+quickpoll_front.2 | manager1
+quickpoll_postgres.1 | worker2
+quickpoll_redis.1 | worker1
+quickpoll_worker.1 | worker1
+{"version":"v2","results":[{"option":"kubernetes","count":4},{"option":"nomad","count":4},{"option":"swarm","count":7}]}
+### 60s apres
+15:03:33
+quickpoll_api 3/3
+quickpoll_front 2/2
+quickpoll_postgres 1/1
+quickpoll_redis 1/1
+quickpoll_worker 1/1
+quickpoll_api.1 | worker2
+quickpoll_api.2 | worker2
+quickpoll_api.3 | manager1
+quickpoll_front.1 | worker2
+quickpoll_front.2 | manager1
+quickpoll_postgres.1 | worker2
+quickpoll_redis.1 | worker2
+quickpoll_worker.1 | worker2
+15:03:33  {"version":"v2","host":"07d0b2248c6d"} 200  (ok=267 ko=5)
+### active + 20s
+      2 manager1
+      6 worker2
+### force api
+force: completed apres 75s
+      2 manager1
+      2 worker1
+      4 worker2
+TOTAL ok=710 ko=5
+{"version":"v2","results":[{"option":"kubernetes","count":4},{"option":"nomad","count":4},{"option":"swarm","count":7}]}

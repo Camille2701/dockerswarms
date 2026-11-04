@@ -1,0 +1,50 @@
+### replanification de Postgres hors de worker2
+14:52:09
+{"version":"v1","results":[{"option":"kubernetes","count":1},{"option":"swarm","count":2}]}
+14:52:29
+orig_postgres.1 | worker1 | Running | Running 8 seconds ago
+orig_postgres.1 | worker2 | Shutdown | Shutdown 16 seconds ago
+<html>
+<head><title>502 Bad Gateway</title></head>
+<body>
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx/1.27.5</center>
+</body>
+</html>
+ HTTP 502
+<html>
+<head><title>502 Bad Gateway</title></head>
+<body>
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx/1.27.5</center>
+</body>
+</html>
+ HTTP 502
+manager1: 
+worker1: orig_pgdata 
+worker2: orig_pgdata 
+### kill du conteneur API (restart_policy none)
+api sur 
+Error response from daemon: No such container: sh
+14:53:00
+orig_api 0/1
+orig_front 1/1
+orig_postgres 1/1
+orig_redis 1/1
+orig_worker 1/1
+orig_api.1 | worker1 | Shutdown | Failed 47 seconds ago | "task: non-zero exit (1)"
+api/version HTTP 502
+### logs API
+    [Symbol(shapeMode)]: false,
+    [Symbol(kCapture)]: false
+  }
+}
+
+Node.js v22.23.4
+### base Postgres sur worker1 (nouveau volume)
+ERROR:  relation "votes" does not exist
+LINE 1: SELECT count(*) FROM votes
+                             ^
+Did not find any relations.
+### volume laisse sur worker2
+45.9M

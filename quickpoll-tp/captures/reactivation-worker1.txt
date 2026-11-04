@@ -1,0 +1,18 @@
+### worker1 remis en active
+worker1
+### 45s apres remise en active
+14:33:13
+manager1 Active
+worker1 Active
+worker2 Active
+
+      3 manager1
+      4 worker2
+quickpoll_api.1 | worker2
+quickpoll_api.2 | manager1
+quickpoll_api.3 | worker2
+quickpoll_front.1 | manager1
+quickpoll_postgres.1 | worker2
+quickpoll_redis.1 | manager1
+quickpoll_worker.1 | worker2
+registry | manager1

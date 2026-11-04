@@ -1,0 +1,15 @@
+### test Redis en retard
+14:57:03
+quickpoll_redis scaled to 0
+quickpoll_api scaled to 0
+quickpoll_api scaled to 3
+14:57:33
+quickpoll_api 0/3
+quickpoll_redis 0/0
+quickpoll_redis scaled to 1
+api=3/3 25s apres le retour de Redis
+init attempt 5/10 failed: getaddrinfo ENOTFOUND redis
+api v1 listening on 3000
+api v1 listening on 3000
+{"queued":"24ffcfa8-5984-41fb-820e-747a726bf74f"} HTTP 202
+{"version":"v1","results":[{"option":"kubernetes","count":4},{"option":"nomad","count":4},{"option":"swarm","count":7}]}

@@ -1,0 +1,28 @@
+### drain worker2 (db=true)
+15:01:02
+{"version":"v2","results":[{"option":"kubernetes","count":4},{"option":"nomad","count":4},{"option":"swarm","count":7}]}
+### 60s apres
+15:02:02
+quickpoll_api 0/3
+quickpoll_front 2/2
+quickpoll_postgres 0/1
+quickpoll_redis 1/1
+quickpoll_worker 1/1
+postgres | Pending about a minute ago | "no suitable node (scheduling …"
+api/version HTTP 502
+page HTTP 200
+ 502  (ok=34 ko=227)
+15:02:03
+### retour : 10s apres remise en active, sans intervention
+quickpoll_api=3/3 quickpoll_front=2/2 quickpoll_postgres=1/1 quickpoll_redis=1/1 quickpoll_worker=1/1 
+15:02:13
+quickpoll_api.1 | worker1
+quickpoll_api.2 | worker1
+quickpoll_api.3 | manager1
+quickpoll_front.1 | worker1
+quickpoll_front.2 | manager1
+quickpoll_postgres.1 | worker2
+quickpoll_redis.1 | worker1
+quickpoll_worker.1 | worker1
+{"version":"v2","results":[{"option":"kubernetes","count":4},{"option":"nomad","count":4},{"option":"swarm","count":7}]} HTTP 200
+TOTAL ok=52 ko=257

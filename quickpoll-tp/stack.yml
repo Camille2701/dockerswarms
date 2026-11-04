@@ -1,0 +1,101 @@
+# QuickPoll — stack de production
+# "Ça marchait sur mon poste avec docker compose up." — l'ancien dev
+
+services:
+  front:
+    image: ${REGISTRY:-127.0.0.1:5000}/quickpoll-front:${FRONT_TAG:-v1}
+    ports:
+      - "8080:80"
+    networks:
+      - front
+    deploy:
+      replicas: 2
+
+  api:
+    image: ${REGISTRY:-127.0.0.1:5000}/quickpoll-api:${API_TAG:-v1}
+    environment:
+      DB_HOST: postgres
+      DB_USER: quickpoll
+      DB_NAME: quickpoll
+      DB_PASSWORD_FILE: /run/secrets/db_password
+      REDIS_URL: redis://redis:6379
+    secrets:
+      - source: quickpoll_db_password
+        target: db_password
+    networks:
+      - front
+      - back
+    healthcheck:
+      test: ["CMD-SHELL", "node -e \"require('node:http').get('http://127.0.0.1:3000/api/health', r => process.exit(r.statusCode === 200 ? 0 : 1)).on('error', () => process.exit(1))\""]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+      start_period: 10s
+    deploy:
+      replicas: 3
+      restart_policy:
+        condition: any
+        delay: 5s
+        max_attempts: 0
+      update_config:
+        parallelism: 1
+        delay: 5s
+        order: start-first
+        failure_action: rollback
+        monitor: 40s
+        max_failure_ratio: 0
+      rollback_config:
+        parallelism: 1
+        order: start-first
+        monitor: 40s
+
+  worker:
+    image: ${REGISTRY:-127.0.0.1:5000}/quickpoll-worker:${WORKER_TAG:-v1}
+    environment:
+      DB_HOST: postgres
+      DB_USER: quickpoll
+      DB_NAME: quickpoll
+      DB_PASSWORD_FILE: /run/secrets/db_password
+      REDIS_URL: redis://redis:6379
+    secrets:
+      - source: quickpoll_db_password
+        target: db_password
+    networks:
+      - back
+
+  redis:
+    image: redis:7-alpine
+    networks:
+      - back
+
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: quickpoll
+      POSTGRES_DB: quickpoll
+      POSTGRES_PASSWORD_FILE: /run/secrets/db_password
+    secrets:
+      - source: quickpoll_db_password
+        target: db_password
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - back
+    deploy:
+      placement:
+        constraints:
+          - node.labels.db == true
+
+networks:
+  front:
+    driver: overlay
+  back:
+    driver: overlay
+    internal: true
+
+volumes:
+  pgdata:
+
+secrets:
+  quickpoll_db_password:
+    external: true
