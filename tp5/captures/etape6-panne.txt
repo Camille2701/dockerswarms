@@ -1,0 +1,30 @@
+derniere sauvegarde : 15:52:39 saved /backups/quickpoll-20261104-155239.dump (8.0K)
+### PANNE docker stop worker2 : 15:53:15
+worker2
+### worker2 arrete : 15:53:18
+### T+60 : 15:54:20
+manager1 Ready Active
+worker1 Ready Active
+worker2 Down Active
+
+quickpoll_db.1 |  | Running | Pending 51 seconds ago | "no suitable node (scheduling …"
+quickpoll_db.1 | worker2 | Shutdown | Running 3 minutes ago | 
+quickpoll_db.1 | manager1 | Shutdown | Rejected 3 minutes ago | "assigned node no longer meets…"
+quickpoll_db.1 | worker2 | Shutdown | Rejected 16 minutes ago | "assigned node no longer meets…"
+quickpoll_db.1 | manager1 | Shutdown | Rejected 17 minutes ago | "assigned node no longer meets…"
+
+quickpoll_api 1/3 (max 2 per node)
+quickpoll_backup 1/1
+quickpoll_db 1/1
+quickpoll_front 3/2
+quickpoll_redis 2/1
+quickpoll_worker 1/1
+
+page HTTP 200
+ /api/version HTTP 502
+ /api/results HTTP 502
+pg_dump: error: could not translate host name "db" to address: Name has no usable address
+15:53:39 backup FAILED
+ 502  (ok=334 ko=256)
+15:54:19 502
+15:54:20 502

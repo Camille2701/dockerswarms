@@ -1,0 +1,6 @@
+# Sauvegardes : ne jamais versionner les données de la base
+*.dump
+*.tmp
+
+.DS_Store
+.env

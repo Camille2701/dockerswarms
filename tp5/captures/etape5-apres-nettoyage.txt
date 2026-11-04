@@ -1,0 +1,28 @@
+### nettoyage manager1 : conteneurs arretes puis volume
+quickpoll_db-data
+0
+### deplacement de backup vers manager1
+15:51:34
+manager1 Running less than a second ago
+total 4
+-rw-r--r--    1 root     root          3550 Nov  4 15:51 quickpoll-20261104-155139.dump
+15:50:58 saved /backups/quickpoll-20261104-155058.dump (4.0K)
+### nettoyage worker1
+Error response from daemon: remove quickpoll_backups: volume is in use - [68f8676b30936b9530f36fe57f9e72b81b2dd92aee8042bc9e0e8db87b77239e]
+quickpoll_backups
+### etat
+manager1 map[backup:true]
+worker1 map[]
+worker2 map[db:true]
+db worker2
+backup manager1
+quickpoll_api.1 | manager1
+quickpoll_api.2 | worker2
+quickpoll_api.3 | worker1
+quickpoll_backup.1 | manager1
+quickpoll_db.1 | worker2
+quickpoll_front.1 | worker1
+quickpoll_front.2 | worker2
+quickpoll_redis.1 | worker2
+quickpoll_worker.1 | worker1
+registry | manager1

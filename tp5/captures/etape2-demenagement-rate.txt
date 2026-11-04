@@ -1,0 +1,29 @@
+### ETAPE 2 : avant
+15:36:22
+{"version":"v2","results":[{"option":"kubernetes","count":3},{"option":"nomad","count":2},{"option":"swarm","count":5}]}
+quickpoll_db.1 | worker2 | Ready | Preparing 4 seconds ago | 
+quickpoll_db.1 | manager1 | Shutdown | Rejected 5 seconds ago | "assigned node no longer meets…"
+### 65s apres deplacement vers worker2
+15:37:27
+quickpoll_db.1 | worker2 | Running | Running 48 seconds ago | 
+quickpoll_db.1 | manager1 | Shutdown | Rejected about a minute ago | "assigned node no longer meets…"
+quickpoll_api 3/3 (max 2 per node)
+quickpoll_db 1/1
+quickpoll_front 2/2
+quickpoll_redis 1/1
+quickpoll_worker 1/1
+{"version":"v2","results":[]} HTTP 200
+manager1: quickpoll_db-data 
+worker1: 
+worker2: quickpoll_db-data 
+### 60s apres retour etiquette manager1
+15:38:28
+quickpoll_db.1 | manager1 | Running | Running 50 seconds ago
+quickpoll_db.1 | worker2 | Shutdown | Rejected about a minute ago
+quickpoll_db.1 | manager1 | Shutdown | Rejected 2 minutes ago
+quickpoll_api 3/3 (max 2 per node)
+quickpoll_db 1/1
+quickpoll_front 2/2
+quickpoll_redis 1/1
+quickpoll_worker 1/1
+{"version":"v2","results":[{"option":"kubernetes","count":3},{"option":"nomad","count":2},{"option":"swarm","count":5}]} HTTP 200

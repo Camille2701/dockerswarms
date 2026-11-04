@@ -1,0 +1,17 @@
+### retention : 12 sauvegardes ecrites
+15:50:00
+0
+15:47:58 saved /backups/quickpoll-20261104-154758.dump (4.0K)
+15:48:58 saved /backups/quickpoll-20261104-154858.dump (4.0K)
+15:49:58 saved /backups/quickpoll-20261104-154958.dump (4.0K)
+fichiers=10
+quickpoll-20261104-154057.dump
+quickpoll-20261104-154157.dump
+quickpoll-20261104-154258.dump
+quickpoll-20261104-154358.dump
+quickpoll-20261104-154458.dump
+quickpoll-20261104-154558.dump
+quickpoll-20261104-154658.dump
+quickpoll-20261104-154758.dump
+quickpoll-20261104-154858.dump
+quickpoll-20261104-154958.dump

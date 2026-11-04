@@ -1,0 +1,33 @@
+[15:50:27] avant : {"version":"v2","results":[{"option":"kubernetes","count":4},{"option":"nomad","count":4},{"option":"swarm","count":7}]}
+[15:50:27] 1. scale api=0
+quickpoll_api scaled to 0
+[15:50:31] api 0/0 (max 2 per node)
+[15:50:34] vote pendant la bascule : HTTP 000
+[15:50:35] 2. LLEN votes sur worker2 = 0
+[15:50:35] 3. dump
+[15:50:37] dump: 0/1 (1/1 completed)
+-rw-r--r--    1 root     root          3550 Nov  4 15:50 /backups/bascule.dump
+[15:50:37] 4. scale worker=0
+quickpoll_worker scaled to 0
+[15:50:37] 5. volume perime worker2
+Error response from daemon: remove quickpoll_db-data: volume is in use - [2a083fbe9888590abd065ed78d65f1d392236e338daa3bab67a077b1c20e1a3b]
+[15:50:37] 6. etiquettes
+[15:50:49] 7. db saine : worker2 Running 1 second ago (1/1)
+[15:50:49] 8. restore
+[15:50:53] restore: 0/1 (1/1 completed)
+restoring bascule.dump
+[15:50:53] 9. scale worker=1 api=3
+quickpoll_worker scaled to 1
+quickpoll_api scaled to 3
+[15:51:00] premier 200 API
+[15:51:00] api 3/3 (max 2 per node)
+[15:51:00] 10. apres : {"version":"v2","results":[{"option":"kubernetes","count":4},{"option":"nomad","count":4},{"option":"swarm","count":7}]}
+Error response from daemon: remove quickpoll_db-data: volume is in use - [d631dc50eb2d8c1e49a8b5bf69ec6f998de3e54048f671267fd8bbd6e0bd53e7, db371438342ddf160fda4f527a1e3c24937a999cd93b61a4c32520f1472d3607]
+db worker2
+quickpoll_api 3/3 (max 2 per node)
+quickpoll_backup 1/1
+quickpoll_db 1/1
+quickpoll_front 2/2
+quickpoll_redis 1/1
+quickpoll_worker 1/1
+TOTAL ok=33 ko=111

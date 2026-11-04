@@ -1,0 +1,21 @@
+15:59:15
+NAME               MODE         REPLICAS               IMAGE
+quickpoll_api      replicated   3/3 (max 2 per node)   127.0.0.1:5000/quickpoll-api:v2
+quickpoll_backup   replicated   1/1                    postgres:17-alpine
+quickpoll_db       replicated   1/1                    postgres:17-alpine
+quickpoll_front    replicated   2/2                    127.0.0.1:5000/quickpoll-front:v1
+quickpoll_redis    replicated   1/1                    redis:7-alpine
+quickpoll_worker   replicated   1/1                    127.0.0.1:5000/quickpoll-worker:v1
+manager1 map[backup:true]
+worker1 map[db:true]
+worker2 map[]
+db worker1
+backup manager1
+15:56:37 saved /backups/quickpoll-20261104-155637.dump (8.0K)
+15:57:37 saved /backups/quickpoll-20261104-155737.dump (8.0K)
+15:58:37 saved /backups/quickpoll-20261104-155837.dump (8.0K)
+fichiers=5
+{"version":"v2","results":[{"option":"kubernetes","count":4},{"option":"nomad","count":4},{"option":"swarm","count":79}]}
+manager1 : quickpoll_backups registry-data  registry-data 
+worker1 : quickpoll_db-data  
+worker2 : quickpoll_pgdata  

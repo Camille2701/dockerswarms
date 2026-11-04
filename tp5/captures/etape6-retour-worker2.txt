@@ -1,0 +1,38 @@
+### avant redemarrage worker2
+15:58:31
+{"version":"v2","results":[{"option":"kubernetes","count":4},{"option":"nomad","count":4},{"option":"swarm","count":79}]}
+manager1 map[backup:true]
+worker1 map[db:true]
+worker2 map[]
+worker2
+worker2 Ready apres 4s
+15:58:54
+manager1 Ready Active
+worker1 Ready Active
+worker2 Ready Active
+quickpoll_api 3/3 (max 2 per node)
+quickpoll_backup 1/1
+quickpoll_db 1/1
+quickpoll_front 2/2
+quickpoll_redis 1/1
+quickpoll_worker 1/1
+quickpoll_api.1 | worker1
+quickpoll_api.2 | worker1
+quickpoll_api.3 | manager1
+quickpoll_backup.1 | manager1
+quickpoll_db.1 | worker1
+quickpoll_front.1 | worker1
+quickpoll_front.2 | manager1
+quickpoll_redis.1 | worker1
+quickpoll_worker.1 | worker1
+db worker1
+{"version":"v2","results":[{"option":"kubernetes","count":4},{"option":"nomad","count":4},{"option":"swarm","count":79}]}
+### worker2 : ancien volume
+quickpoll_db-data
+quickpoll_pgdata
+46.3M
+quickpoll_db.1.p8wzxwxnm4r5lgr9edt6mqu92 Exited (0) 5 minutes ago
+quickpoll_db.1.ji2jt8wackwxvxja57euevueq Exited (0) 21 minutes ago
+### nettoyage worker2
+quickpoll_db-data
+quickpoll_pgdata

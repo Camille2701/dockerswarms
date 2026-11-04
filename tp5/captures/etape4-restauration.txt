@@ -1,0 +1,25 @@
+### 5 premiers votes
+202 202 202 202 202 
+15:39:14
+{"version":"v2","results":[{"option":"kubernetes","count":4},{"option":"nomad","count":4},{"option":"swarm","count":7}]}
+### nouvelle sauvegarde
+15:39:57 saved /backups/quickpoll-20261104-153957.dump (4.0K)
+### 5 votes suivants
+202 202 202 202 202 
+15:40:03
+{"version":"v2","results":[{"option":"kubernetes","count":5},{"option":"nomad","count":6},{"option":"swarm","count":9}]}
+### restauration
+15:40:03
+i0i0my3hyav4vggphdvjzhwm5
+ID             NAME      MODE             REPLICAS              IMAGE                PORTS
+i0i0my3hyav4   restore   replicated job   0/1 (1/1 completed)   postgres:17-alpine   
+restore.hd2mcrc4pk8dnryb5x39sipwk | worker1 | Complete | Complete 2 seconds ago | 
+restoring /backups/quickpoll-20261104-153957.dump
+15:40:10
+{"version":"v2","results":[{"option":"kubernetes","count":4},{"option":"nomad","count":4},{"option":"swarm","count":7}]} HTTP 200
+quickpoll_api 3/3 (max 2 per node)
+quickpoll_backup 1/1
+quickpoll_db 1/1
+quickpoll_front 2/2
+quickpoll_redis 1/1
+quickpoll_worker 1/1

@@ -1,0 +1,31 @@
+[15:54:47] reprise : arret des boucles de votes
+0
+[15:54:48] 1. arret backup, api, worker
+quickpoll_backup scaled to 0
+quickpoll_api scaled to 0
+quickpoll_worker scaled to 0
+Unable to find image 'postgres:17-alpine' locally
+17-alpine: Pulling from library/postgres
+Digest: sha256:266d3c257594e195b309ae9d1805e54c788f1d7b375f56bf6c367aac6c917e7b
+Status: Downloaded newer image for postgres:17-alpine
+[15:54:50] 2. derniere sauvegarde : /backups/quickpoll-20261104-155239.dump
+[15:54:50] 3. etiquettes
+[15:56:33] 4. db saine : worker1 Running about a minute ago (2/1)
+[15:56:33] 5. restore
+[15:56:36] restore: 0/1 (1/1 completed)
+manager1 Complete less than a second ago 
+restoring /backups/quickpoll-20261104-155239.dump
+[15:56:36] 6. relance worker, api, backup
+quickpoll_worker scaled to 1
+quickpoll_api scaled to 3
+quickpoll_backup scaled to 1
+[15:56:43] premier 200 /api/results (HTTP 200)
+[15:58:06] api 4/3 (max 2 per node)
+[15:58:06] votes restaures : {"version":"v2","results":[{"option":"kubernetes","count":4},{"option":"nomad","count":4},{"option":"swarm","count":79}]}
+TOTAL ok=719 ko=909
+quickpoll_api 4/3 (max 2 per node)
+quickpoll_backup 1/1
+quickpoll_db 2/1
+quickpoll_front 3/2
+quickpoll_redis 2/1
+quickpoll_worker 1/1
